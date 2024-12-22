@@ -5,6 +5,7 @@ const home = "🏡";
 let matrix = createMatrix();
 
 function minimumTimeToReachEnd() {
+  board.style.pointerEvents = "none";
   const row = Number(boardRow.value || 3);
   const col = Number(boardCol.value || 3);
   let allTrace = [];
@@ -29,6 +30,7 @@ function minimumTimeToReachEnd() {
   animate(allTraceSpread);
 }
 
+const timers = [];
 function animate(allTrace, fail) {
   if (!allTrace.length) {
     return;
@@ -43,7 +45,9 @@ function animate(allTrace, fail) {
     } else {
       decorateWinner(trace);
     }
-    setTimeout(() => animate(allTrace, fail), 400);
+    timers.push(
+      setTimeout(() => animate(allTrace, fail), Number(animationSpeed.value))
+    );
   }
 }
 
@@ -149,6 +153,8 @@ function resetBoard() {
   matrix = createMatrix();
   createBoard();
   minimum.innerHTML = "Hit that start button!";
+  timers.forEach((timer) => clearTimeout(timer));
+  board.style.pointerEvents = "all";
 }
 
 function setBlock(e) {

@@ -54,6 +54,31 @@
       <div class="d-flex flex-column align-items-center w-100">
         <div class="container" id="container"></div>
         <br />
+        <div
+          class="d-flex justify-content-center align-items-center mb-2 gap-4"
+        >
+          <span>Number of elements:</span>
+          <input
+            id="numberofElements"
+            placeholder="Select number of elements..."
+            type="range"
+            min="1"
+            max="100"
+            onchange="initArray()"
+          />
+        </div>
+        <div
+          class="d-flex justify-content-center align-items-center mb-2 gap-4"
+        >
+          <span>Speed:</span>
+          <input
+            id="animationSpeed"
+            placeholder="Enter animation speed..."
+            type="range"
+            min="1"
+            max="1000"
+          />
+        </div>
         <div class="btn-container">
           <button class="btn btn-sm btn-outline-primary" onclick="initArray()">
             Init
@@ -75,6 +100,12 @@
             onclick="play('selection')"
           >
             Selection Sort
+          </button>
+          <button
+            class="btn btn-sm btn-outline-primary"
+            onclick="play('merge')"
+          >
+            Merge Sort
           </button>
         </div>
       </div>
