@@ -4,7 +4,7 @@ function initArray() {
   numberofElements.disabled = false;
   array = [];
   for (let i = 1; i < Number(numberofElements.value); i++) {
-    array.push(Math.random() * 100);
+    array.push(Math.ceil(Math.random() * 100));
   }
   showArray();
 }
@@ -17,9 +17,9 @@ function animate(swaps) {
   const move = swaps.shift();
   if (move.type === "swap") {
     const [i, j] = move.indexes;
-    array[i] = array[i] ^ array[j];
-    array[j] = array[i] ^ array[j];
-    array[i] = array[i] ^ array[j];
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
   if (move.type === "copy") {
     const { index, value } = move;
@@ -43,6 +43,8 @@ function play(sortingAlgo) {
     func = selectionSort;
   } else if (sortingAlgo === "merge") {
     func = mergeSort;
+  } else if (sortingAlgo === "quick") {
+    func = quickSort;
   }
   const swaps = func(copy);
   animate(swaps);
@@ -56,9 +58,9 @@ function bubbleSort(array) {
       // swaps.push({ indexes: [j, j + 1], type: "move" });
       if (array[j] > array[j + 1]) {
         swaps.push({ indexes: [j, j + 1], type: "swap" });
-        array[j] = array[j] ^ array[j + 1];
-        array[j + 1] = array[j] ^ array[j + 1];
-        array[j] = array[j] ^ array[j + 1];
+        const temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
         swapped = true;
       }
     }
@@ -94,9 +96,9 @@ function selectionSort(array) {
     }
     if (currIdx !== i) {
       swaps.push({ indexes: [i, currIdx], type: "swap" });
-      array[i] = array[i] ^ array[currIdx];
-      array[currIdx] = array[i] ^ array[currIdx];
-      array[i] = array[i] ^ array[currIdx];
+      const temp = array[i];
+      array[i] = array[currIdx];
+      array[currIdx] = temp;
     }
   }
   return swaps;
@@ -106,7 +108,6 @@ function selectionSort(array) {
 function mergeSort(array) {
   const swaps = [];
   divide(array, 0, array.length, swaps);
-  console.log(array, swaps);
   return swaps;
 }
 function divide(arr, left, right, swaps) {
@@ -171,6 +172,41 @@ function merge(arr, left, mid, right, swaps) {
     r++;
     k++;
   }
+}
+
+// quick sort
+function quickSort(array) {
+  const swaps = [];
+  quickSortMain(array, 0, array.length - 1, swaps);
+  return swaps;
+}
+function quickSortMain(arr, left, right, swaps) {
+  if (left < right) {
+    const pivot = partition(arr, left, right, swaps);
+    quickSortMain(arr, left, pivot - 1, swaps);
+    quickSortMain(arr, pivot + 1, right, swaps);
+  }
+}
+function partition(arr, left, right, swaps) {
+  const pivot = arr[right];
+  let i = left - 1;
+  for (let j = left; j <= right - 1; j++) {
+    swaps.push({ indexes: [j, right], type: "move" });
+    if (arr[j] < pivot) {
+      i++;
+      swaps.push({ indexes: [i, j], type: "swap" });
+      const temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  }
+
+  swaps.push({ indexes: [i + 1, right], type: "swap" });
+  const temp = arr[i + 1];
+  arr[i + 1] = arr[right];
+  arr[right] = temp;
+
+  return i + 1;
 }
 
 function showArray(move) {
