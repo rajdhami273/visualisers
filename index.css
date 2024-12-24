@@ -67,3 +67,19 @@ body {
     font-size: 12px;
   }
 }
+
+/* traffic light */
+.light {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.stand {
+  left: 50%;
+  width: 40px;
+  height: 200px;
+  transform: translate(-50%, 100%);
+  background-color: wheat;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
