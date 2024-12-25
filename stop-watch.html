@@ -9,7 +9,8 @@
     <!-- bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
+      rel="preload stylesheet"
+      as="style"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
@@ -32,6 +33,23 @@
 
       gtag("config", "G-H0XB3VT0RW");
     </script>
+    <style>
+      table,
+      td,
+      th {
+        text-align: center;
+        padding: 10px;
+      }
+
+      td:last-child {
+        width: 60px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    </style>
   </head>
   <body>
     <div class="containerMain">
@@ -40,44 +58,49 @@
         class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark side-nav"
       ></div>
       <div class="d-flex flex-column align-items-center w-100">
-        <div id="board" class="board"></div>
-        <br />
-        <div class="d-flex justify-content-center">
+        <div
+          class="d-flex flex-column justify-content-center align-items-center my-2 gap-4"
+        >
           <table>
             <tr>
-              <td>Turn:</td>
+              <td>Hours</td>
               <td></td>
-              <td>
-                <b id="turnElem"></b>
-              </td>
+              <td>Minutes</td>
+              <td></td>
+              <td>Seconds</td>
+              <td></td>
+              <td>Count</td>
             </tr>
             <tr>
-              <td>Winner:</td>
-              <td></td>
-              <td><b id="winner">None</b></td>
+              <td id="hours">-</td>
+              <td>:</td>
+              <td id="minutes">-</td>
+              <td>:</td>
+              <td id="seconds">-</td>
+              <td>:</td>
+              <td id="count">-</td>
             </tr>
           </table>
-        </div>
-        <br />
-        <div class="text-center mb-2">
-          <input
-            id="boardSize"
-            placeholder="Enter board size..."
-            type="number"
-            min="1"
-          />
-        </div>
-        <div class="text-center">
-          <button
-            class="btn btn-sm btn-outline-primary m-auto"
-            onclick="resetMatrix()"
-          >
-            Reset matrix
-          </button>
+          <div class="btn-container justify-content-stretch w-100">
+            <button
+              id="startStopBtn"
+              class="btn btn-sm btn-outline-success w-100"
+              onclick="startStop()"
+            >
+              Start
+            </button>
+            <button
+              id="resetBtn"
+              class="btn btn-sm btn-outline-danger w-100"
+              onclick="reset()"
+            >
+              Reset
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <script defer src="index.js"></script>
-    <script defer src="tictactoe.js"></script>
+    <script defer src="stop-watch.js"></script>
   </body>
 </html>
