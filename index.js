@@ -21,7 +21,7 @@ const sidebarTabs = [
   },
 ];
 
-const path = window.location.pathname.replace("/", "");
+const path = window.location.pathname.split("/").pop();
 function addSidebarTabs() {
   const sidenavContainer = document.getElementById("side-nav");
   const fragment = document.createDocumentFragment();
@@ -32,7 +32,7 @@ function addSidebarTabs() {
     const li = `
     <li class="nav-item">
       <a href="${href}" class="nav-link  text-white ${
-      path === href ? "active" : ""
+      path === href || (!path && href === "index.html") ? "active" : ""
     }" aria-current="page">
         ${title}
       </a>
