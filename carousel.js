@@ -31,6 +31,13 @@ function next() {
   counter = (counter + 1) % images.length;
   init();
 }
+function onDrag(ev) {
+  if (ev.offsetX < 0) {
+    next();
+  } else {
+    previous();
+  }
+}
 function setLeftAndRight() {
   setImages((counter - 1 + images.length) % images.length, "image-left");
   setImages((counter + 1) % images.length, "image-right");
