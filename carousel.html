@@ -43,17 +43,40 @@
     </style>
   </head>
   <body>
-    <div class="containerMain">
+    <button
+      class="navbar-toggler position-absolute d-md-none collapsed position-absolute navbar-toggle-btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#side-nav"
+      aria-controls="sidebarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="containerMain row">
       <div
         id="side-nav"
-        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark side-nav"
-      ></div>
-      <div class="d-flex flex-column align-items-center w-100">
+        class="text-white bg-dark side-nav col-md-3 col-lg-2 d-md-block bg-light sidebar collapse py-4"
+      >
+        <button
+          class="navbar-toggler position-absolute d-md-none collapsed navbar-toggle-btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#side-nav"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi bi-x-circle-fill"></i>
+        </button>
+      </div>
+      <div class="ms-sm-auto mt-4 col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
-          class="d-flex flex-column justify-content-center align-items-center my-4 gap-4"
+          class="d-flex w-100 flex-column justify-content-center align-items-center my-4 gap-4"
         >
           <div
-            class="btn-container justify-content-stretch w-100 position-relative my-4"
+            class="d-flex justify-content-center w-100 position-relative my-4"
           >
             <div
               class="img-container left-side"
@@ -73,7 +96,7 @@
               <img id="image-right" />
             </div>
           </div>
-          <div class="btn-container justify-content-stretch w-100">
+          <div class="d-flex justify-content-center gap-1 w-100">
             <button
               id="previousBtn"
               class="btn btn-sm btn-outline-primary"
@@ -94,5 +117,11 @@
     </div>
     <script defer src="index.js"></script>
     <script defer src="carousel.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
