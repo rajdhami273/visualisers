@@ -19,6 +19,10 @@ const sidebarTabs = [
     href: "stop-watch.html",
     title: "Stop watch",
   },
+  {
+    href: "carousel.html",
+    title: "Carousel",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
