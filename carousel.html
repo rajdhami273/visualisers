@@ -55,11 +55,21 @@
           <div
             class="btn-container justify-content-stretch w-100 position-relative my-4"
           >
-            <div class="img-container left-side" onclick="previous()">
+            <div
+              class="img-container left-side"
+              ondragend="onDrag(event)"
+              onclick="previous()"
+            >
               <img id="image-left" />
             </div>
-            <div class="img-container main-image"><img id="image" /></div>
-            <div class="img-container right-side" onclick="next()">
+            <div class="img-container main-image" ondragend="onDrag(event)">
+              <img id="image" />
+            </div>
+            <div
+              class="img-container right-side"
+              ondragend="onDrag(event)"
+              onclick="next()"
+            >
               <img id="image-right" />
             </div>
           </div>
