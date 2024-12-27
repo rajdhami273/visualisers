@@ -41,13 +41,14 @@ function createStructure(filesArray) {
     li.addEventListener("click", (e) => {
       e.stopPropagation();
       if (hasChildren) {
-        if (li.children[0].classList.contains("bi-caret-down-fill")) {
-          li.children[0].classList.remove("bi-caret-down-fill");
-          li.children[0].classList.add("bi-caret-up-fill");
+        const liClassList = li.children[1].classList;
+        if (liClassList.contains("bi-caret-down-fill")) {
+          liClassList.remove("bi-caret-down-fill");
+          liClassList.add("bi-caret-up-fill");
           file.open = false;
         } else {
-          li.children[0].classList.remove("bi-caret-up-fill");
-          li.children[0].classList.add("bi-caret-down-fill");
+          liClassList.remove("bi-caret-up-fill");
+          liClassList.add("bi-caret-down-fill");
           file.open = true;
         }
         hideChildren(childNode);
