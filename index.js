@@ -23,6 +23,10 @@ const sidebarTabs = [
     href: "carousel.html",
     title: "Carousel",
   },
+  {
+    href: "file-explorer.html",
+    title: "File explorer",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();

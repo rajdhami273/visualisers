@@ -46,9 +46,24 @@ function setImages(counterTemp, elemId) {
   const { url } = images[Math.abs(counterTemp) % images.length];
   document.getElementById(elemId).setAttribute("src", url);
 }
+
+// v2
+function setImagesV2() {
+  const container = document.getElementById("main-image-v2");
+  const fragment = document.createDocumentFragment();
+  for (let { url } of images) {
+    const imgElement = document.createElement("img");
+    imgElement.style.scrollSnapAlign = "center";
+    imgElement.src = url;
+    fragment.appendChild(imgElement);
+  }
+  container.appendChild(fragment);
+}
+// v2 ends
 function init() {
   setImages(counter, "image");
   setLeftAndRight();
+  // setImagesV2();
 }
 
 window.addEventListener("DOMContentLoaded", init);

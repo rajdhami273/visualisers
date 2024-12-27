@@ -128,3 +128,6 @@ body {
 .right-side:hover {
   transform: translateX(25%) scale(1.05);
 }
+.main-image-v2 {
+  scroll-snap-type: x mandatory;
+}
