@@ -35,10 +35,9 @@
       gtag("config", "G-H0XB3VT0RW");
     </script>
     <style>
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
+      ul {
+        list-style-type: none;
+        border-left: 1px solid black;
       }
     </style>
   </head>
@@ -73,80 +72,13 @@
       </div>
       <div class="ms-sm-auto mt-4 col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
-          class="d-flex w-100 flex-column justify-content-center align-items-center my-4 gap-4"
-        >
-          <div
-            class="d-flex justify-content-center w-100 position-relative my-4"
-          >
-            <div
-              class="img-container left-side"
-              ondragend="onDrag(event)"
-              onclick="previous()"
-            >
-              <img id="image-left" />
-            </div>
-            <div class="img-container main-image" ondragend="onDrag(event)">
-              <img id="image" />
-            </div>
-            <div
-              class="img-container right-side"
-              ondragend="onDrag(event)"
-              onclick="next()"
-            >
-              <img id="image-right" />
-            </div>
-          </div>
-          <div class="d-flex justify-content-center gap-1 w-100">
-            <button
-              id="previousBtn"
-              class="btn btn-sm btn-outline-primary"
-              onclick="previous()"
-            >
-              &lt;
-            </button>
-            <button
-              id="nextBtn"
-              class="btn btn-sm btn-outline-primary"
-              onclick="next()"
-            >
-              &gt;
-            </button>
-          </div>
-        </div>
-        <!-- <div
-          class="d-flex w-100 flex-column justify-content-center align-items-center my-4 gap-4"
-        >
-          <div
-            class="d-flex justify-content-center w-100 position-relative my-4"
-          >
-            <div
-              id="main-image-v2"
-              dir="ltr"
-              class="img-container main-image-v2 d-flex overflow-scroll"
-              ondragend="onDrag(event)"
-            ></div>
-          </div>
-          <div class="d-flex justify-content-center gap-1 w-100">
-            <button
-              id="previousBtn"
-              class="btn btn-sm btn-outline-primary"
-              onclick="previous()"
-            >
-              &lt;
-            </button>
-            <button
-              id="nextBtn"
-              class="btn btn-sm btn-outline-primary"
-              onclick="next()"
-            >
-              &gt;
-            </button>
-          </div>
-        </div> -->
+          id="file-explorer-container"
+          class="d-flex w-100 flex-column my-4 gap-4"
+        ></div>
       </div>
     </div>
     <script defer src="index.js"></script>
-    <script defer src="carousel.js"></script>
+    <script defer src="file-explorer.js"></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
