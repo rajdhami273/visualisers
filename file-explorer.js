@@ -29,13 +29,18 @@ function createStructure(filesArray) {
   for (let file of filesArray) {
     const { name, children } = file;
     const li = document.createElement("li");
+    const hasChildren = !!children;
     li.innerHTML =
-      name + (children ? ' <i class="bi bi-caret-down-fill"></i>' : "");
+      (hasChildren
+        ? '<i class="bi bi-folder-fill"></i> '
+        : ' <i class="bi bi-file-earmark-fill"></i> ') +
+      name +
+      (hasChildren ? ' <i class="bi bi-caret-down-fill"></i>' : "");
     const childNode = createStructure(children);
     li.style.cursor = "pointer";
     li.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (childNode.tagName) {
+      if (hasChildren) {
         if (li.children[0].classList.contains("bi-caret-down-fill")) {
           li.children[0].classList.remove("bi-caret-down-fill");
           li.children[0].classList.add("bi-caret-up-fill");
