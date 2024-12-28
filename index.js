@@ -27,6 +27,10 @@ const sidebarTabs = [
     href: "file-explorer.html",
     title: "File explorer",
   },
+  {
+    href: "tabs.html",
+    title: "Tabs",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
