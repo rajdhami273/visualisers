@@ -131,3 +131,16 @@ body {
 .main-image-v2 {
   scroll-snap-type: x mandatory;
 }
+
+/* tabs */
+.tabHide {
+  animation: goAway 0.3s ease-in-out;
+}
+@keyframes goAway {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
