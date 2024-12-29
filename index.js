@@ -31,6 +31,10 @@ const sidebarTabs = [
     href: "tabs.html",
     title: "Tabs",
   },
+  {
+    href: "clock.html",
+    title: "Clock",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
