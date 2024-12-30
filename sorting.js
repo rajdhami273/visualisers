@@ -15,13 +15,21 @@ function animate(swaps) {
     return;
   }
   const move = swaps.shift();
-  if (move.type === "swap") {
+  if (move.type === "animate") {
+    const [i, j] = move.indexes;
+    moveAnimation(i, j);
+    timers.push(
+      setTimeout(() => {
+        animate(swaps);
+      }, Number(animationSpeed.value))
+    );
+    return;
+  } else if (move.type === "swap") {
     const [i, j] = move.indexes;
     const temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  }
-  if (move.type === "copy") {
+  } else if (move.type === "copy") {
     const { index, value } = move;
     array[index] = value;
   }
@@ -31,6 +39,37 @@ function animate(swaps) {
       animate(swaps);
     }, Number(animationSpeed.value))
   );
+}
+
+function moveAnimation(i, j) {
+  const iElem = document.getElementById(i);
+  const jElem = document.getElementById(j);
+  [iElem, jElem].forEach((elem) => {
+    const { left, top, width, height } = elem.getBoundingClientRect();
+    const elemCopy = elem.cloneNode();
+    elem.classList.remove("bg-dark");
+    elem.style.backgroundColor = "transparent";
+    elemCopy.id = `${elem.id}clone`;
+    elemCopy.style.width = `${width}px`;
+    elemCopy.style.height = `${height}px`;
+    elemCopy.style.left = `${left}px`;
+    elemCopy.style.top = `${top}px`;
+    elemCopy.style.position = "fixed";
+    elemCopy.style.transition = "all 0.3s linear";
+    elemCopy.classList.remove("bg-dark");
+    elemCopy.classList.add("bg-danger");
+    document.body.append(elemCopy);
+  });
+  const iElemClone = document.getElementById(`${i}clone`);
+  const jElemClone = document.getElementById(`${j}clone`);
+  const { left: iLeft } = iElemClone.getBoundingClientRect();
+  const { left: jLeft } = jElemClone.getBoundingClientRect();
+  iElemClone.style.left = `${jLeft}px`;
+  jElemClone.style.left = `${iLeft}px`;
+  setTimeout(() => {
+    iElemClone.remove();
+    jElemClone.remove();
+  }, Number(animationSpeed.value));
 }
 
 function play(sortingAlgo) {
@@ -57,6 +96,7 @@ function bubbleSort(array) {
     for (let j = 0; j < array.length - i - 1; j++) {
       // swaps.push({ indexes: [j, j + 1], type: "move" });
       if (array[j] > array[j + 1]) {
+        swaps.push({ indexes: [j, j + 1], type: "animate" });
         swaps.push({ indexes: [j, j + 1], type: "swap" });
         const temp = array[j];
         array[j] = array[j + 1];
@@ -76,6 +116,7 @@ function insertionSort(array) {
     curr = array[i];
     j = i - 1;
     while (j >= 0 && array[j] > curr) {
+      swaps.push({ indexes: [j + 1, j], type: "animate" });
       swaps.push({ indexes: [j + 1, j], type: "swap" });
       array[j + 1] = array[j];
       j--;
@@ -95,6 +136,7 @@ function selectionSort(array) {
       }
     }
     if (currIdx !== i) {
+      swaps.push({ indexes: [i, currIdx], type: "animate" });
       swaps.push({ indexes: [i, currIdx], type: "swap" });
       const temp = array[i];
       array[i] = array[currIdx];
@@ -194,6 +236,7 @@ function partition(arr, left, right, swaps) {
     swaps.push({ indexes: [j, right], type: "move" });
     if (arr[j] < pivot) {
       i++;
+      swaps.push({ indexes: [j, j], type: "animate" });
       swaps.push({ indexes: [i, j], type: "swap" });
       const temp = arr[i];
       arr[i] = arr[j];
@@ -201,6 +244,7 @@ function partition(arr, left, right, swaps) {
     }
   }
 
+  swaps.push({ indexes: [i + 1, right], type: "animate" });
   swaps.push({ indexes: [i + 1, right], type: "swap" });
   const temp = arr[i + 1];
   arr[i + 1] = arr[right];
@@ -215,8 +259,10 @@ function showArray(move) {
   for (let idx = 0; idx < array.length; idx++) {
     const bar = document.createElement("div");
     bar.classList.add("bg-dark");
+    bar.classList.add("rounded");
     bar.style.height = `${array[idx]}%`;
     bar.style.width = "40px";
+    bar.id = idx;
     if (move && move.indexes.includes(idx)) {
       bar.classList.toggle("bg-dark");
       bar.classList.add(
