@@ -207,3 +207,60 @@ body {
 .clock-screen {
   flex: 1;
 }
+
+/* dice */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.diceWrapper {
+  width: 100%;
+}
+.dice {
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+.dice-dots-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.dice-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+}
+.dice-dot-top-left {
+  top: 0;
+  left: 0;
+}
+.dice-dot-top-right {
+  top: 0;
+  right: 0;
+}
+.dice-dot-center-left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.dice-dot-center-right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.dice-dot-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.dice-dot-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+.dice-dot-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
