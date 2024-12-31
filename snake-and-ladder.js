@@ -177,5 +177,6 @@ function resetTimer() {
 window.addEventListener("DOMContentLoaded", createBoard);
 
 window.addEventListener("resize", drawSnakesAndLadders);
+window.addEventListener("scroll", drawSnakesAndLadders);
 
 window.addEventListener("unload", resetTimer);
