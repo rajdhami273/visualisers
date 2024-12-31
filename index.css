@@ -272,3 +272,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* snake and ladder */
+.custom-snl-dice {
+  font-size: 100px;
+}
