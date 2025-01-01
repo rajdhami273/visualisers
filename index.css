@@ -279,13 +279,15 @@ body {
 }
 
 /* whack a mole */
+.game-board {
+  margin: 0 auto;
+  max-width: 620px;
+}
 .grid-whack {
   aspect-ratio: 1 / 1;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
-  margin: 0 auto;
-  max-width: 620px;
 }
 .mole-col {
   border: none;

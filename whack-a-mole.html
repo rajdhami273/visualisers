@@ -64,15 +64,17 @@
           <i class="bi bi-x-circle-fill"></i>
         </button>
       </div>
-      <div class="ms-sm-auto mt-4 col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between my-4 p-2">
+      <div
+        class="ms-sm-auto mt-4 col-md-9 ms-sm-auto col-lg-10 px-md-4"
+      >
+        <div class="d-flex justify-content-between my-4 p-2 game-board">
           <h3>Score: <span id="score">0</span></h3>
           <button id="playBtn" class="btn btn-primary" onclick="play()">
             Play
           </button>
           <h3>Time left: <span id="timeLeft">0</span></h3>
         </div>
-        <div class="grid-whack g-4" id="whack-board-container"></div>
+        <div class="grid-whack g-4 game-board" id="whack-board-container"></div>
       </div>
     </div>
     <script defer src="index.js"></script>
