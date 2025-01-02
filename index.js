@@ -47,6 +47,10 @@ const sidebarTabs = [
     href: "whack-a-mole.html",
     title: "Whack a mole",
   },
+  {
+    href: "autocomplete-and-search-bar.html",
+    title: "Autocomplete and search bar",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();

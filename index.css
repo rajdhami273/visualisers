@@ -311,3 +311,13 @@ body {
   position: absolute;
   bottom: 0;
 }
+
+/* autocomplete and search bar */
+.search-result-container {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+}
+.search-item {
+  
+}
