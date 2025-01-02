@@ -318,6 +318,31 @@ body {
   width: 100%;
   padding: 0;
 }
-.search-item {
-  
+
+/* shimmer */
+.shimmer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card,
+.placeholder {
+  height: 30vh !important;
+}
+
+.shimmer {
+  background-image: linear-gradient(to left, white, grey);
+  background-size: 200% 200%;
+  animation: animateColor 1s linear infinite;
+}
+@keyframes animateColor {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
 }

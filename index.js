@@ -51,6 +51,10 @@ const sidebarTabs = [
     href: "autocomplete-and-search-bar.html",
     title: "Autocomplete and search bar",
   },
+  {
+    href: "shimmer.html",
+    title: "Shimmer UI",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
