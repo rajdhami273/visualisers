@@ -55,6 +55,10 @@ const sidebarTabs = [
     href: "shimmer.html",
     title: "Shimmer UI",
   },
+  {
+    href: "accordion.html",
+    title: "Accordion",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
