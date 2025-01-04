@@ -59,6 +59,10 @@ const sidebarTabs = [
     href: "accordion.html",
     title: "Accordion",
   },
+  {
+    href: "unload-boxes.html",
+    title: "Unload boxes",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
