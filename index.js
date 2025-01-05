@@ -63,6 +63,10 @@ const sidebarTabs = [
     href: "unload-boxes.html",
     title: "Unload boxes",
   },
+  {
+    href: "highlight-text.html",
+    title: "Highlight text",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
