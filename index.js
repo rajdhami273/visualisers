@@ -67,6 +67,10 @@ const sidebarTabs = [
     href: "highlight-text.html",
     title: "Highlight text",
   },
+  {
+    href: "magic-cursor.html",
+    title: "Magic cursor",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
