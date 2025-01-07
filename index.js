@@ -73,7 +73,7 @@ const sidebarTabs = [
   },
   {
     href: "canvas.html",
-    title: "Canvas",
+    title: "Fake canvas",
   },
 ];
 
