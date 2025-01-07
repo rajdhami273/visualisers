@@ -47,6 +47,7 @@ function createCanvas() {
       pixel.style.height = `${pixelHeight}px`;
       pixel.style.width = `${pixelWidth}px`;
       pixel.onclick = () => (pixel.style.backgroundColor = getColor());
+      pixel.onmouseover = () => (pixel.style.backgroundColor = getColor());
       pixel.onmousedown = () => (pixel.style.backgroundColor = getColor());
       pixel.onmouseenter = () =>
         dragging ? (pixel.style.backgroundColor = getColor()) : null;
