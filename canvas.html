@@ -34,13 +34,6 @@
 
       gtag("config", "G-H0XB3VT0RW");
     </script>
-    <style>
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <button
@@ -54,10 +47,10 @@
     >
       <i class="bi bi-list"></i>
     </button>
-    <div class="containerMain row">
+    <div class="containerMain row m-0 p-0">
       <div
         id="side-nav"
-        class="text-white bg-dark side-nav col-md-3 col-lg-2 d-md-block bg-light sidebar collapse py-4 overflow-auto"
+        class="text-white bg-dark side-nav col-md-3 col-lg-2 d-md-block bg-light sidebar collapse py-4 overflow-auto sm-w-100"
       >
         <button
           class="navbar-toggler position-absolute d-md-none collapsed navbar-toggle-btn"
@@ -71,36 +64,35 @@
           <i class="bi bi-x-circle-fill"></i>
         </button>
       </div>
-      <div class="ms-sm-auto mt-4 col-md-9 col-lg-10 px-md-4">
-        <div
-          class="d-flex w-100 flex-column justify-content-center align-items-center my-4"
-        >
-          <div class="w-75">
-            <h3 class="mb-4 text-center">
-              *** Please enable CORS first as it is using google search api ***
-            </h3>
-            <div class="input-group">
-              <input
-                class="form-control py-2 border-left-0 border"
-                type="search"
-                id="search-input"
-                oninput="callSearchAPI(event)"
-                onfocus="toggleShowResults()"
-                onblur="toggleShowResults()"
-                autocomplete="off"
-                autocapitalize="off"
-              />
-            </div>
-            <ul
-              id="search-result-container"
-              class="list-group list-group-flush w-100 my-1"
-            ></ul>
-          </div>
+      <div
+        class="ms-sm-auto col-md-9 ms-sm-auto col-lg-10 px-md-4 text-center overflow-hidden"
+      >
+        <div id="canvas-container" class="canvas-container"></div>
+        <div id="color-picker-container" class="color-picker-container rounded">
+          <button
+            id="drawBtn"
+            class="btn btn-outline-primary active"
+            onclick="toggleMode('draw')"
+          >
+            Draw
+          </button>
+          <button id="eraseBtn" class="btn" onclick="toggleMode('erase')">
+            Erase
+          </button>
+          <input
+            id="color-picker"
+            type="color"
+            onpointerout="onColorChange(event)"
+            oninput="onColorChange(event)"
+          />
+          <button class="btn btn-outline-danger ms-2" onclick="createCanvas()">
+            Erase all
+          </button>
         </div>
       </div>
     </div>
     <script defer src="index.js"></script>
-    <script defer src="autocomplete-and-search-bar.js"></script>
+    <script defer src="canvas.js"></script>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

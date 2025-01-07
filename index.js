@@ -71,6 +71,10 @@ const sidebarTabs = [
     href: "magic-cursor.html",
     title: "Magic cursor",
   },
+  {
+    href: "canvas.html",
+    title: "Canvas",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
