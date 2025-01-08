@@ -75,6 +75,10 @@ const sidebarTabs = [
     href: "canvas.html",
     title: "Fake canvas",
   },
+  {
+    href: "memory-game.html",
+    title: "Memory game",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
