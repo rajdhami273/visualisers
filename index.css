@@ -401,3 +401,10 @@ body {
     border: none;
   }
 }
+
+/* memory game */
+.memory-game-box {
+  height: 4rem;
+  width: 4rem;
+  font-size: 2rem !important;
+}
