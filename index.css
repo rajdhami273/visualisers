@@ -408,3 +408,8 @@ body {
   width: 4rem;
   font-size: 2rem !important;
 }
+
+/* drag and drop */
+#rows-container > .border-dashed {
+  border-style: dashed !important; 
+}
