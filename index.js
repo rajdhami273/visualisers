@@ -83,6 +83,10 @@ const sidebarTabs = [
     href: "drag-and-drop.html",
     title: "Drag and drop",
   },
+  {
+    href: "otp.html",
+    title: "OTP",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
