@@ -411,5 +411,11 @@ body {
 
 /* drag and drop */
 #rows-container > .border-dashed {
-  border-style: dashed !important; 
+  border-style: dashed !important;
+}
+
+/* otp */
+input[input-num] {
+  width: 50px;
+  text-align: center;
 }
