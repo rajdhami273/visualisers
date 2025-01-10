@@ -84,7 +84,7 @@ const sidebarTabs = [
     title: "Drag and drop",
   },
   {
-    href: "otp.html",
+    href: "otp-page.html",
     title: "OTP",
   },
 ];
