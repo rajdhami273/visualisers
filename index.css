@@ -419,3 +419,78 @@ input[input-num] {
   width: 50px;
   text-align: center;
 }
+
+/* animations */
+.twisting-squares {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.square {
+  height: 94%;
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  animation: rotate 10s linear infinite;
+}
+.square-child {
+  background-color: white;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bouncing-ball-container {
+  height: 300px;
+  width: 300px;
+   /* border: 2px solid black; */
+}
+.bouncing-ball {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+  animation: bounce 1.5s linear infinite;
+}
+@keyframes bounce {
+  0% {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 10px solid red;
+  }
+  25% {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-top: 10px solid red;
+  }
+  50% {
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    border-right: 10px solid red;
+  }
+  75% {
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 50%);
+    border-bottom: 10px solid red;
+  }
+  100% {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
