@@ -421,9 +421,13 @@ input[input-num] {
 }
 
 /* animations */
+.animation-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 .twisting-squares {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -452,9 +456,8 @@ input[input-num] {
 }
 
 .bouncing-ball-container {
-  height: 300px;
-  width: 300px;
-   /* border: 2px solid black; */
+  height: 250px;
+  width: 250px;
 }
 .bouncing-ball {
   height: 100px;
@@ -492,5 +495,107 @@ input[input-num] {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+.yin-yang {
+  animation: rotate 1s linear infinite;
+}
+.box-moving-loader-container {
+  height: 250px;
+  width: 250px;
+  border-bottom: 2px solid black;
+  transform: rotate(-30deg);
+}
+.moving-loader-box {
+  height: 30px;
+  width: 30px;
+  border: 1px solid crimson;
+  bottom: 10px;
+  animation: moveBackAndForth 2s linear infinite;
+}
+
+@keyframes moveBackAndForth {
+  0% {
+    left: 0%;
+    rotate: (0deg);
+  }
+  10% {
+    left: 20%;
+    transform: rotate(90deg);
+  }
+  20% {
+    left: 40%;
+    transform: rotate(180deg);
+  }
+  30% {
+    left: 60%;
+    transform: rotate(270deg);
+  }
+  40% {
+    left: 80%;
+    transform: rotate(360deg);
+  }
+  50% {
+    left: 80%;
+    transform: rotate(360deg);
+  }
+  60% {
+    left: 60%;
+    transform: rotate(270deg);
+  }
+  70% {
+    left: 40%;
+    transform: rotate(180deg);
+  }
+  80% {
+    left: 20%;
+    transform: rotate(90deg);
+  }
+  100% {
+    left: 0%;
+    transform: rotate(0deg);
+  }
+}
+
+.rain-drop-container {
+  height: 250px;
+  width: 250px;
+  border-top: 2px solid black;
+  overflow: hidden;
+}
+.rain-drops {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border-top-left-radius: 0;
+  transform: rotate(45deg);
+  animation-name: dropDown;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  background-color: #66d4f9;
+  top: -100%;
+}
+.drop-1 {
+  animation-delay: 0s;
+}
+.drop-2 {
+  animation-delay: 2s;
+}
+.drop-3 {
+  animation-delay: 1s;
+}
+.drop-4 {
+  animation-delay: 3s;
+}
+.drop-5 {
+  animation-delay: 1s;
+}
+@keyframes dropDown {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
   }
 }
