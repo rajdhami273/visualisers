@@ -95,6 +95,10 @@ const sidebarTabs = [
     href: "animations.html",
     title: "Animations",
   },
+  {
+    href: "data-list.html",
+    title: "Data list",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
