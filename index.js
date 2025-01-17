@@ -103,6 +103,10 @@ const sidebarTabs = [
     href: "star-rating.html",
     title: "Star rating",
   },
+  {
+    href: "progress-bars.html",
+    title: "Progress bars",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
