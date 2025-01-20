@@ -107,6 +107,10 @@ const sidebarTabs = [
     href: "progress-bars.html",
     title: "Progress bars",
   },
+  {
+    href: "modal.html",
+    title: "Modal",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
