@@ -94,7 +94,7 @@ function createStructure(filesArray) {
   }
   const ul = document.createElement("ul");
   ul.style.margin = "4px";
-  for (let file of filesArray.reverse()) {
+  for (let file of [...filesArray].reverse()) {
     const { name, children } = file;
     const li = document.createElement("li");
     li.style.margin = "4px";
