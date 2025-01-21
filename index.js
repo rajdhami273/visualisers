@@ -111,6 +111,10 @@ const sidebarTabs = [
     href: "modal.html",
     title: "Modal",
   },
+  {
+    href: "tree.html",
+    title: "Tree",
+  },
 ];
 
 const path = window.location.pathname.split("/").pop();
