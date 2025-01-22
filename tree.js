@@ -1,4 +1,4 @@
-const files = [
+let files = [
   {
     name: "Root",
     children: [
@@ -32,12 +32,14 @@ const files = [
   },
 ];
 
-function generateLinesToDraw(files = []) {
+jsonInput.value = JSON.stringify(files, null, 2);
+
+function flattenCustom(files) {
   const arr = [];
   for (let file of files) {
     const child = [];
     if (file.children) {
-      child.push(...generateLinesToDraw(file.children));
+      child.push(...flattenCustom(file.children));
     }
     arr.push(
       {
@@ -47,6 +49,38 @@ function generateLinesToDraw(files = []) {
       ...child
     );
   }
+  return arr;
+}
+
+function parseJson() {
+  try {
+    const tempfiles = JSON.parse(jsonInput.value);
+    if (!Array.isArray(tempfiles)) {
+      throw new Error("Should be an array");
+    }
+    if (!tempfiles.length) {
+      throw new Error("Should have atleast one node");
+    }
+    const arr = flattenCustom(tempfiles);
+    const mem = {};
+    for (const elem of arr) {
+      if (!Object.hasOwn(elem, "id")) {
+        throw new Error("Every objects must have name property");
+      }
+      if (mem[elem.id]) {
+        throw new Error("Every object must have unique name");
+      }
+      mem[elem.id] = true;
+    }
+    files = tempfiles;
+    init();
+  } catch (error) {
+    alert(error.message || "Invalid JSON");
+  }
+}
+
+function generateLinesToDraw(files = []) {
+  const arr = flattenCustom(files);
   const lines = document.getElementById("paths");
   lines.innerHTML = "";
   const fragment = document.createDocumentFragment();
@@ -128,5 +162,8 @@ window.addEventListener("DOMContentLoaded", () => {
   init();
 });
 window.addEventListener("resize", () => {
+  init();
+});
+window.addEventListener("scroll", () => {
   init();
 });
