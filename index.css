@@ -422,12 +422,10 @@ input[input-num] {
 
 /* animations */
 .animation-container {
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 .twisting-squares {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -456,8 +454,8 @@ input[input-num] {
 }
 
 .bouncing-ball-container {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
 }
 .bouncing-ball {
   height: 100px;
@@ -497,8 +495,13 @@ input[input-num] {
     transform: translateY(-50%);
   }
 }
-.yin-yang {
-  animation: rotate 1s linear infinite;
+.yin-yang-container {
+  height: 250px;
+  width: 250px;
+
+  img {
+    animation: rotate 1s linear infinite;
+  }
 }
 .box-moving-loader-container {
   height: 250px;
@@ -558,8 +561,8 @@ input[input-num] {
 }
 
 .rain-drop-container {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   border-top: 2px solid black;
   overflow: hidden;
 }
@@ -574,7 +577,7 @@ input[input-num] {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   background-color: #66d4f9;
-  top: -100%;
+  top: -20px;
 }
 .drop-1 {
   animation-delay: 0s;
@@ -593,7 +596,7 @@ input[input-num] {
 }
 @keyframes dropDown {
   0% {
-    top: -100%;
+    top: -20px;
   }
   100% {
     top: 100%;
