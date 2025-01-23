@@ -599,3 +599,79 @@ input[input-num] {
     top: 100%;
   }
 }
+
+/* Progress bars */
+.progress-bar-wrapper {
+  height: 10px;
+}
+.progress-bar-elem {
+  height: 100%;
+  transform-origin: left;
+  animation: fillWhole 2s linear forwards;
+}
+@keyframes fillWhole {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* modal */
+.custom-modal {
+  width: 280px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 9999;
+  animation: bringFromLeft 0.5s cubic-bezier(1, -0.35, 0.2, 1.27) forwards;
+  > * {
+    padding: 10px;
+  }
+  > header {
+    height: max-content;
+    width: 100%;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    > button {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+    }
+  }
+  > .content {
+    display: flex;
+    flex-grow: 1;
+  }
+  > footer {
+    width: 100%;
+    border-top: 1px solid rgb(0, 0, 0, 0.2);
+    text-align: end;
+  }
+}
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  height: 200vh;
+  width: 200vw;
+  z-index: 9998;
+  animation: bringFromLeft 5s ease-in-out;
+}
+
+@keyframes bringFromLeft {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
