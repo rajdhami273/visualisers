@@ -600,6 +600,50 @@ input[input-num] {
   }
 }
 
+.wave-circles-container {
+  align-items: center;
+}
+.wave-circle {
+  height: 20px;
+  width: 20px;
+  background-color: teal;
+  border-radius: 50%;
+  animation: moveUpDown 1s ease-in-out infinite;
+  position: relative;
+}
+.wave-circle-1 {
+  animation-delay: 0s;
+}
+.wave-circle-2 {
+  animation-delay: 0.1s;
+}
+.wave-circle-3 {
+  animation-delay: 0.2s;
+}
+.wave-circle-4 {
+  animation-delay: 0.3s;
+}
+.wave-circle-5 {
+  animation-delay: 0.4s;
+}
+.wave-circle-6 {
+  animation-delay: 0.5s;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(200%) scale(0.2);
+    opacity: 0.5;
+    background-color: rgb(138, 228, 228);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 /* Progress bars */
 .progress-bar-wrapper {
   height: 10px;
